@@ -21,4 +21,20 @@ function determinePerformanceRating(averageSales) {
     }
 };
 
+//Task 3- Create a Function to Identify Top and Bottom Performers
 
+function findTopAndBottomPerformers(salespersons) {
+    return salespersons.reduce((acc, salesperson) => {
+        const averageSales = calculateAverageSales(salesperson.sales);
+
+        if (!acc.topPerformer || averageSales > calculateAverageSales(acc.topPerformer.sales)) { //to check if the current salesperson is the top performer
+            acc.topPerformer = salesperson;
+        }
+
+        if (!acc.bottomPerformer || averageSales < calculateAverageSales(acc.bottomPerformer.sales)) {  // Check if the current salesperson is the bottom performer
+            acc.bottomPerformer = salesperson;
+        }
+
+        return acc;
+    }, { topPerformer: null, bottomPerformer: null });
+}

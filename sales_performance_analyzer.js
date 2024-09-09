@@ -37,4 +37,5 @@ function findTopAndBottomPerformers(salespersons) {
 
         return acc;
     }, { topPerformer: null, bottomPerformer: null });
-}
+};
+
